@@ -10,19 +10,25 @@ const { title, description = 'Intent Age — Where intent becomes interface.', l
 
 const locales = ['tr','en','ar','de','fr','es','it','pt','ru','ja','ko','zh','nl'];
 const localeNames: Record<string, string> = {
-  tr: 'Turkce',
+  tr: 'Türkçe',
   en: 'English',
   ar: 'العربية',
   de: 'Deutsch',
-  fr: 'Francais',
-  es: 'Espanol',
+  fr: 'Français',
+  es: 'Español',
   it: 'Italiano',
-  pt: 'Portugues',
+  pt: 'Português',
   ru: 'Русский',
   ja: '日本語',
   ko: '한국어',
   zh: '中文',
   nl: 'Nederlands',
+};
+
+const localeFlags: Record<string, string> = {
+  tr: '🇹🇷', en: '🇬🇧', ar: '🇸🇦', de: '🇩🇪', fr: '🇫🇷',
+  es: '🇪🇸', it: '🇮🇹', pt: '🇧🇷', ru: '🇷🇺', ja: '🇯🇵',
+  ko: '🇰🇷', zh: '🇨🇳', nl: '🇳🇱',
 };
 
 const dir = locale === 'ar' ? 'rtl' : 'ltr';
@@ -52,14 +58,14 @@ const currentPath = Astro.url.pathname;
     <a href={`/${locale}/`} class="site-logo"><span class="logo-age">AGE</span> <span class="logo-of">OF</span> <span class="logo-intent">INTENT</span></a>
     <div class="lang-switcher">
       <button class="lang-switcher-btn" id="langBtn">
-        {localeNames[locale]}
+        {localeFlags[locale]}
       </button>
       <div class="lang-dropdown" id="langDropdown">
         {locales.map(l => {
           const targetPath = currentPath.replace(`/${locale}/`, `/${l}/`);
           return (
             <a href={targetPath} class={l === locale ? 'active' : ''}>
-              {localeNames[l]}
+              <span class="flag">{localeFlags[l]}</span> {localeNames[l]}
             </a>
           );
         })}

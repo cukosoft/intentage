@@ -1,0 +1,87 @@
+---
+interface Props {
+  locale: string;
+}
+
+const { locale } = Astro.props;
+
+const i18n: Record<string, { heading: string; subtext: string; emailPlaceholder: string; emailButton: string; rssText: string; pushText: string; thankYou: string }> = {
+  tr: { heading: 'Takipte kal', subtext: 'Yeni yazılardan haberdar ol.', emailPlaceholder: 'E-posta adresin', emailButton: 'Abone ol', rssText: 'RSS', pushText: 'Bildirim al', thankYou: 'Teşekkürler.' },
+  en: { heading: 'Stay in the loop', subtext: 'Get notified when new posts arrive.', emailPlaceholder: 'Your email', emailButton: 'Subscribe', rssText: 'RSS', pushText: 'Get notified', thankYou: 'Thank you.' },
+  ar: { heading: 'ابقَ على اطلاع', subtext: 'احصل على إشعار عند نشر مقالات جديدة.', emailPlaceholder: 'بريدك الإلكتروني', emailButton: 'اشترك', rssText: 'RSS', pushText: 'تلقي إشعارات', thankYou: 'شكراً لك.' },
+  de: { heading: 'Dranbleiben', subtext: 'Erfahre, wenn neue Beiträge erscheinen.', emailPlaceholder: 'Deine E-Mail', emailButton: 'Abonnieren', rssText: 'RSS', pushText: 'Benachrichtigung', thankYou: 'Danke.' },
+  fr: { heading: 'Restez informé', subtext: 'Soyez notifié des nouveaux articles.', emailPlaceholder: 'Votre email', emailButton: "S'abonner", rssText: 'RSS', pushText: 'Notifications', thankYou: 'Merci.' },
+  es: { heading: 'Mantente al día', subtext: 'Recibe aviso de nuevas publicaciones.', emailPlaceholder: 'Tu email', emailButton: 'Suscribirse', rssText: 'RSS', pushText: 'Notificaciones', thankYou: 'Gracias.' },
+  it: { heading: 'Resta aggiornato', subtext: 'Ricevi notifica dei nuovi articoli.', emailPlaceholder: 'La tua email', emailButton: 'Iscriviti', rssText: 'RSS', pushText: 'Notifiche', thankYou: 'Grazie.' },
+  pt: { heading: 'Fique por dentro', subtext: 'Receba aviso de novas publicações.', emailPlaceholder: 'Seu email', emailButton: 'Assinar', rssText: 'RSS', pushText: 'Notificações', thankYou: 'Obrigado.' },
+  ru: { heading: 'Оставайтесь в курсе', subtext: 'Узнавайте о новых публикациях.', emailPlaceholder: 'Ваш email', emailButton: 'Подписаться', rssText: 'RSS', pushText: 'Уведомления', thankYou: 'Спасибо.' },
+  ja: { heading: 'フォローする', subtext: '新しい記事の通知を受け取る。', emailPlaceholder: 'メールアドレス', emailButton: '登録', rssText: 'RSS', pushText: '通知を受け取る', thankYou: 'ありがとう。' },
+  ko: { heading: '소식 받기', subtext: '새 글이 올라오면 알려드립니다.', emailPlaceholder: '이메일 주소', emailButton: '구독', rssText: 'RSS', pushText: '알림 받기', thankYou: '감사합니다.' },
+  zh: { heading: '保持关注', subtext: '新文章发布时收到通知。', emailPlaceholder: '你的邮箱', emailButton: '订阅', rssText: 'RSS', pushText: '接收通知', thankYou: '谢谢。' },
+  nl: { heading: 'Blijf op de hoogte', subtext: 'Ontvang bericht bij nieuwe artikelen.', emailPlaceholder: 'Je e-mail', emailButton: 'Abonneren', rssText: 'RSS', pushText: 'Meldingen', thankYou: 'Bedankt.' },
+};
+
+const t = i18n[locale] || i18n.en;
+---
+
+<section class="subscribe-section">
+  <h3 class="subscribe-heading">{t.heading}</h3>
+  <p class="subscribe-subtext">{t.subtext}</p>
+
+  <div class="subscribe-options">
+    <!-- Email -->
+    <form class="subscribe-email" id="subscribeForm">
+      <input type="email" name="email" placeholder={t.emailPlaceholder} required class="subscribe-input" />
+      <button type="submit" class="subscribe-btn">{t.emailButton}</button>
+    </form>
+
+    <div class="subscribe-alt">
+      <!-- RSS -->
+      <a href={`/rss.xml?lang=${locale}`} class="subscribe-link" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        {t.rssText}
+      </a>
+
+      <!-- Push -->
+      <button class="subscribe-link subscribe-push" id="pushBtn" type="button">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        {t.pushText}
+      </button>
+    </div>
+  </div>
+
+  <p class="subscribe-thanks" id="subscribeThanks" style="display:none">{t.thankYou}</p>
+</section>
+
+<script>
+  // Email subscribe
+  const form = document.getElementById('subscribeForm') as HTMLFormElement;
+  const thanks = document.getElementById('subscribeThanks');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = new FormData(form).get('email') as string;
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        if (thanks) thanks.style.display = 'block';
+      }
+    } catch {}
+  });
+
+  // Push notifications
+  const pushBtn = document.getElementById('pushBtn');
+  pushBtn?.addEventListener('click', async () => {
+    if (!('Notification' in window) || !('serviceWorker' in navigator)) return;
+    const permission = await Notification.requestPermission();
+    if (permission === 'granted') {
+      await navigator.serviceWorker.register('/sw.js');
+      pushBtn.textContent = '✓';
+      pushBtn.setAttribute('disabled', 'true');
+    }
+  });
+</script>
