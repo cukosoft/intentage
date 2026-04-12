@@ -17,198 +17,198 @@ const posts = allPosts
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
 const i18n: Record<string, {
-  tagline: string;
+  subtitle: string;
+  notBlog: string;
+  diagnosis: string;
+  thesis: string;
+  manifesto: string;
+  forAgents: string;
   forHumans: string;
   forMachines: string;
-  read: string;
-  forAgents: string;
-  startHere: string;
   signal: string;
   subscribe: string;
-  docs: string;
-  discovery: string;
   emailPlaceholder: string;
   thankYou: string;
 }> = {
   tr: {
-    tagline: 'AI çağında niyet ve üretim üzerine.',
-    forHumans: 'Yazılar insanlar için.',
-    forMachines: 'Arayüzler makineler için.',
-    read: 'Oku',
+    subtitle: 'Yeni çağın mantığı üzerine bağımsız yayın.',
+    notBlog: 'Bu bir blog değil.',
+    diagnosis: 'Bu, bir çağ teşhisi.',
+    thesis: 'Intent Age, AI çağında niyetin üretime nasıl daha az kayıpla aktığını inceler.',
+    manifesto: 'Manifesto',
     forAgents: 'For Agents',
-    startHere: 'Başlangıç için',
+    forHumans: 'Yazılar insanlar için.',
+    forMachines: 'Protokoller makineler için.',
     signal: 'Sinyali al.',
     subscribe: 'Abone ol',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'E-posta',
     thankYou: 'Kayıt alındı.',
   },
   en: {
-    tagline: 'On intent and production in the age of AI.',
-    forHumans: 'Writing is for humans.',
-    forMachines: 'Interfaces are for machines.',
-    read: 'Read',
+    subtitle: 'Independent publication on the logic of the new age.',
+    notBlog: 'This is not a blog.',
+    diagnosis: 'This is a diagnosis of an era.',
+    thesis: 'Intent Age examines how intent flows into production with less loss in the age of AI.',
+    manifesto: 'Manifesto',
     forAgents: 'For Agents',
-    startHere: 'Start here',
+    forHumans: 'Writing is for humans.',
+    forMachines: 'Protocols are for machines.',
     signal: 'Get the signal.',
     subscribe: 'Subscribe',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'Email',
     thankYou: 'Noted.',
   },
   ar: {
-    tagline: 'عن النية والإنتاج في عصر الذكاء الاصطناعي.',
-    forHumans: 'الكتابة للبشر.',
-    forMachines: 'الواجهات للآلات.',
-    read: 'اقرأ',
+    subtitle: 'نشر مستقل حول منطق العصر الجديد.',
+    notBlog: 'هذه ليست مدونة.',
+    diagnosis: 'هذا تشخيص لعصر.',
+    thesis: 'Intent Age يدرس كيف تتدفق النية إلى الإنتاج بأقل خسارة في عصر الذكاء الاصطناعي.',
+    manifesto: 'البيان',
     forAgents: 'For Agents',
-    startHere: 'ابدأ من هنا',
+    forHumans: 'الكتابة للبشر.',
+    forMachines: 'البروتوكولات للآلات.',
     signal: 'التقط الإشارة.',
     subscribe: 'اشترك',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'البريد',
     thankYou: 'تم.',
   },
   de: {
-    tagline: 'Über Absicht und Produktion im Zeitalter der KI.',
-    forHumans: 'Texte sind für Menschen.',
-    forMachines: 'Schnittstellen sind für Maschinen.',
-    read: 'Lesen',
+    subtitle: 'Unabhängige Publikation zur Logik des neuen Zeitalters.',
+    notBlog: 'Das ist kein Blog.',
+    diagnosis: 'Das ist eine Diagnose einer Epoche.',
+    thesis: 'Intent Age untersucht, wie Absicht mit weniger Verlust in Produktion fließt im Zeitalter der KI.',
+    manifesto: 'Manifest',
     forAgents: 'For Agents',
-    startHere: 'Hier beginnen',
+    forHumans: 'Texte sind für Menschen.',
+    forMachines: 'Protokolle sind für Maschinen.',
     signal: 'Signal empfangen.',
     subscribe: 'Abonnieren',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'E-Mail',
     thankYou: 'Notiert.',
   },
   fr: {
-    tagline: "Sur l'intention et la production à l'ère de l'IA.",
-    forHumans: "L'écriture est pour les humains.",
-    forMachines: 'Les interfaces sont pour les machines.',
-    read: 'Lire',
+    subtitle: "Publication indépendante sur la logique du nouvel âge.",
+    notBlog: "Ceci n'est pas un blog.",
+    diagnosis: "C'est un diagnostic d'époque.",
+    thesis: "Intent Age examine comment l'intention se transforme en production avec moins de perte à l'ère de l'IA.",
+    manifesto: 'Manifeste',
     forAgents: 'For Agents',
-    startHere: 'Commencer ici',
+    forHumans: "L'écriture est pour les humains.",
+    forMachines: 'Les protocoles sont pour les machines.',
     signal: 'Capter le signal.',
     subscribe: "S'abonner",
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'Email',
     thankYou: 'Noté.',
   },
   es: {
-    tagline: 'Sobre la intención y la producción en la era de la IA.',
-    forHumans: 'Los textos son para humanos.',
-    forMachines: 'Las interfaces son para máquinas.',
-    read: 'Leer',
+    subtitle: 'Publicación independiente sobre la lógica de la nueva era.',
+    notBlog: 'Esto no es un blog.',
+    diagnosis: 'Esto es un diagnóstico de una era.',
+    thesis: 'Intent Age examina cómo la intención fluye hacia la producción con menos pérdida en la era de la IA.',
+    manifesto: 'Manifiesto',
     forAgents: 'For Agents',
-    startHere: 'Empieza aquí',
+    forHumans: 'Los textos son para humanos.',
+    forMachines: 'Los protocolos son para máquinas.',
     signal: 'Capta la señal.',
     subscribe: 'Suscribirse',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'Email',
     thankYou: 'Anotado.',
   },
   it: {
-    tagline: "Su intenzione e produzione nell'era dell'IA.",
-    forHumans: 'La scrittura è per gli umani.',
-    forMachines: 'Le interfacce sono per le macchine.',
-    read: 'Leggi',
+    subtitle: "Pubblicazione indipendente sulla logica della nuova era.",
+    notBlog: 'Questo non è un blog.',
+    diagnosis: "Questa è una diagnosi d'epoca.",
+    thesis: "Intent Age esamina come l'intenzione fluisce nella produzione con meno perdita nell'era dell'IA.",
+    manifesto: 'Manifesto',
     forAgents: 'For Agents',
-    startHere: 'Inizia qui',
+    forHumans: 'La scrittura è per gli umani.',
+    forMachines: 'I protocolli sono per le macchine.',
     signal: 'Ricevi il segnale.',
     subscribe: 'Iscriviti',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'Email',
     thankYou: 'Registrato.',
   },
   pt: {
-    tagline: 'Sobre intenção e produção na era da IA.',
-    forHumans: 'Textos são para humanos.',
-    forMachines: 'Interfaces são para máquinas.',
-    read: 'Ler',
+    subtitle: 'Publicação independente sobre a lógica da nova era.',
+    notBlog: 'Isto não é um blog.',
+    diagnosis: 'Isto é um diagnóstico de uma era.',
+    thesis: 'Intent Age examina como a intenção flui para a produção com menos perda na era da IA.',
+    manifesto: 'Manifesto',
     forAgents: 'For Agents',
-    startHere: 'Comece aqui',
+    forHumans: 'Textos são para humanos.',
+    forMachines: 'Protocolos são para máquinas.',
     signal: 'Capte o sinal.',
     subscribe: 'Assinar',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'Email',
     thankYou: 'Anotado.',
   },
   ru: {
-    tagline: 'О намерении и производстве в эпоху ИИ.',
-    forHumans: 'Тексты для людей.',
-    forMachines: 'Интерфейсы для машин.',
-    read: 'Читать',
+    subtitle: 'Независимое издание о логике новой эпохи.',
+    notBlog: 'Это не блог.',
+    diagnosis: 'Это диагноз эпохи.',
+    thesis: 'Intent Age исследует, как намерение перетекает в производство с меньшими потерями в эпоху ИИ.',
+    manifesto: 'Манифест',
     forAgents: 'For Agents',
-    startHere: 'Начните здесь',
+    forHumans: 'Тексты для людей.',
+    forMachines: 'Протоколы для машин.',
     signal: 'Поймай сигнал.',
     subscribe: 'Подписаться',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'Email',
     thankYou: 'Записано.',
   },
   ja: {
-    tagline: 'AI時代の意図と生産について。',
-    forHumans: '文章は人間のために。',
-    forMachines: 'インターフェースは機械のために。',
-    read: '読む',
+    subtitle: '新時代の論理についての独立出版。',
+    notBlog: 'これはブログではない。',
+    diagnosis: 'これは時代の診断だ。',
+    thesis: 'Intent Ageは、AI時代において意図がより少ない損失で生産に流れる方法を考察する。',
+    manifesto: 'マニフェスト',
     forAgents: 'For Agents',
-    startHere: 'ここから始める',
+    forHumans: '文章は人間のために。',
+    forMachines: 'プロトコルは機械のために。',
     signal: 'シグナルを受け取る。',
     subscribe: '登録',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'メール',
     thankYou: '完了。',
   },
   ko: {
-    tagline: 'AI 시대의 의도와 생산에 대하여.',
-    forHumans: '글은 사람을 위해.',
-    forMachines: '인터페이스는 기계를 위해.',
-    read: '읽기',
+    subtitle: '새로운 시대의 논리에 대한 독립 출판.',
+    notBlog: '이것은 블로그가 아니다.',
+    diagnosis: '이것은 시대의 진단이다.',
+    thesis: 'Intent Age는 AI 시대에 의도가 어떻게 더 적은 손실로 생산에 흐르는지를 탐구한다.',
+    manifesto: '선언문',
     forAgents: 'For Agents',
-    startHere: '여기서 시작',
+    forHumans: '글은 사람을 위해.',
+    forMachines: '프로토콜은 기계를 위해.',
     signal: '신호를 받아라.',
     subscribe: '구독',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: '이메일',
     thankYou: '등록됨.',
   },
   zh: {
-    tagline: '关于AI时代的意图与生产。',
-    forHumans: '文字为人而写。',
-    forMachines: '接口为机器而建。',
-    read: '阅读',
+    subtitle: '关于新时代逻辑的独立出版。',
+    notBlog: '这不是博客。',
+    diagnosis: '这是对一个时代的诊断。',
+    thesis: 'Intent Age探究在AI时代，意图如何以更少的损耗流向生产。',
+    manifesto: '宣言',
     forAgents: 'For Agents',
-    startHere: '从这里开始',
+    forHumans: '文字为人而写。',
+    forMachines: '协议为机器而建。',
     signal: '接收信号。',
     subscribe: '订阅',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: '邮箱',
     thankYou: '已记录。',
   },
   nl: {
-    tagline: 'Over intentie en productie in het AI-tijdperk.',
-    forHumans: 'Teksten zijn voor mensen.',
-    forMachines: 'Interfaces zijn voor machines.',
-    read: 'Lezen',
+    subtitle: 'Onafhankelijke publicatie over de logica van het nieuwe tijdperk.',
+    notBlog: 'Dit is geen blog.',
+    diagnosis: 'Dit is een diagnose van een tijdperk.',
+    thesis: 'Intent Age onderzoekt hoe intentie met minder verlies naar productie stroomt in het AI-tijdperk.',
+    manifesto: 'Manifest',
     forAgents: 'For Agents',
-    startHere: 'Begin hier',
+    forHumans: 'Teksten zijn voor mensen.',
+    forMachines: 'Protocollen zijn voor machines.',
     signal: 'Vang het signaal.',
     subscribe: 'Abonneren',
-    docs: 'Docs',
-    discovery: 'Discovery',
     emailPlaceholder: 'Email',
     thankYou: 'Genoteerd.',
   },
@@ -218,22 +218,22 @@ const t = i18n[lang] || i18n.en;
 ---
 
 <BaseLayout title="Intent Age" locale={lang}>
-  <!-- Hero -->
-  <section class="landing-hero">
-    <p class="landing-tagline">{t.tagline}</p>
+
+  <!-- Thesis -->
+  <section class="landing-thesis">
+    <div class="landing-declaration">
+      <p><strong>{t.notBlog}</strong></p>
+      <p><strong>{t.diagnosis}</strong></p>
+    </div>
     <div class="landing-dual">
       <p class="landing-dual-line">{t.forHumans}</p>
       <p class="landing-dual-line landing-muted">{t.forMachines}</p>
     </div>
-    <div class="landing-cta">
-      <a href={`#start`} class="landing-btn landing-btn-primary">{t.read}</a>
-      <a href={`#agents`} class="landing-btn landing-btn-secondary">{t.forAgents}</a>
-    </div>
   </section>
 
-  <!-- Start Here -->
-  <section class="landing-section" id="start">
-    <h2 class="landing-section-title">{t.startHere}</h2>
+  <!-- Manifesto -->
+  <section class="landing-section" id="manifesto">
+    <h2 class="landing-section-title">{t.manifesto}</h2>
     <ul class="landing-posts">
       {posts.map(post => (
         <li class="landing-post-item">
@@ -249,15 +249,19 @@ const t = i18n[lang] || i18n.en;
   <!-- For Agents -->
   <section class="landing-section" id="agents">
     <h2 class="landing-section-title">{t.forAgents}</h2>
+    <p class="landing-agents-desc">{t.forMachines}</p>
     <div class="landing-agents">
       <a href="/mcp" class="landing-agent-link">
         <span class="landing-agent-label">MCP</span>
+        <span class="landing-agent-sub">Protocol</span>
       </a>
       <a href={`/rss.xml?lang=${lang}`} class="landing-agent-link">
-        <span class="landing-agent-label">{t.docs}</span>
+        <span class="landing-agent-label">RSS</span>
+        <span class="landing-agent-sub">Feed</span>
       </a>
       <a href="/sitemap-index.xml" class="landing-agent-link">
-        <span class="landing-agent-label">{t.discovery}</span>
+        <span class="landing-agent-label">Sitemap</span>
+        <span class="landing-agent-sub">Discovery</span>
       </a>
     </div>
   </section>
