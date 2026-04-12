@@ -255,7 +255,7 @@ main {
 }
 
 .landing-dual {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .landing-dual-line {
@@ -312,14 +312,19 @@ main {
   border-top: 1px solid var(--color-border);
 }
 
+.landing-section#agents {
+  margin-top: 3.5rem;
+  padding-top: 4.25rem;
+}
+
 .landing-section-title {
   font-family: var(--font-heading);
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 400;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 2rem;
+  color: #b0a28f;
+  margin-bottom: 2.4rem;
   text-align: center;
 }
 
@@ -361,37 +366,50 @@ main {
 
 .landing-agents {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
+  align-items: stretch;
 }
 
 .landing-agent-link {
+  min-width: 10.5rem;
   text-decoration: none;
-  padding: 0.8rem 1.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 3px;
-  transition: all 0.2s;
+  padding: 1rem 1.4rem 0.95rem;
+  border: 1px solid #ece7e0;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.86);
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
 }
 
 .landing-agent-link:hover {
-  border-color: var(--color-text);
+  border-color: #d9d0c4;
+  background: #fffdfa;
+  transform: translateY(-1px);
 }
 
 .landing-agent-label {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  letter-spacing: 0.05em;
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 400;
+  color: #3e352d;
+  letter-spacing: 0.03em;
 }
 
-.landing-agent-link:hover .landing-agent-label {
-  color: var(--color-text);
+.landing-agent-sub {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a19280;
 }
 
 .landing-signal {
   text-align: center;
   border-top: none;
-  padding-top: 2rem;
+  padding-top: 3.25rem;
 }
 
 .landing-signal-text {
@@ -573,5 +591,19 @@ main {
 
   .post-title {
     font-size: 1.8rem;
+  }
+
+  .landing-section#agents {
+    margin-top: 2.5rem;
+    padding-top: 3rem;
+  }
+
+  .landing-agents {
+    flex-direction: column;
+  }
+
+  .landing-agent-link {
+    width: 100%;
+    min-width: 0;
   }
 }
