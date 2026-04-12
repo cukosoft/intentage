@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/global.css';
+import { getCollection } from 'astro:content';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  const locales = ['tr','en','ar','de','fr','es','it','pt','ru','ja','ko','zh','nl'];
+  return locales.map(lang => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const allPosts = await getCollection('posts');
+const posts = allPosts
+  .filter(post => post.id.startsWith(`${lang}/`))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+---
+
+<BaseLayout title="IntentAge" locale={lang}>
+  <ul class="post-list">
+    {posts.map(post => {
+      const slug = post.id.split('/').pop()?.replace('.md', '') || post.id;
+      return (
+        <li class="post-list-item">
+          <a href={`/${lang}/posts/${post.data.slug}/`}>
+            <div class="post-list-date">{post.data.date}</div>
+            <h2 class="post-list-title">{post.data.title}</h2>
+            <p class="post-list-excerpt">{post.data.excerpt}</p>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</BaseLayout>

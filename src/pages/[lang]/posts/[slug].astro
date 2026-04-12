@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/global.css';
+import { getCollection, render } from 'astro:content';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map(post => {
+    const lang = post.id.split('/')[0];
+    return {
+      params: { lang, slug: post.data.slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { lang } = Astro.params;
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title} description={post.data.excerpt} locale={lang} slug={post.data.slug}>
+  <article>
+    <div class="post-header">
+      <div class="post-date">{post.data.date}</div>
+      <h1 class="post-title">{post.data.title}</h1>
+    </div>
+    <div class="post-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

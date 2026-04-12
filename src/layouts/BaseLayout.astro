@@ -1,0 +1,89 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  locale: string;
+  slug?: string;
+}
+
+const { title, description = 'Intent Age — Where intent becomes interface.', locale, slug } = Astro.props;
+
+const locales = ['tr','en','ar','de','fr','es','it','pt','ru','ja','ko','zh','nl'];
+const localeNames: Record<string, string> = {
+  tr: 'Turkce',
+  en: 'English',
+  ar: 'العربية',
+  de: 'Deutsch',
+  fr: 'Francais',
+  es: 'Espanol',
+  it: 'Italiano',
+  pt: 'Portugues',
+  ru: 'Русский',
+  ja: '日本語',
+  ko: '한국어',
+  zh: '中文',
+  nl: 'Nederlands',
+};
+
+const dir = locale === 'ar' ? 'rtl' : 'ltr';
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang={locale} dir={dir}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={new URL(currentPath, Astro.site).href} />
+  {locales.map(l => {
+    const altPath = currentPath.replace(`/${locale}/`, `/${l}/`);
+    return <link rel="alternate" hreflang={l} href={new URL(altPath, Astro.site).href} />;
+  })}
+  <link rel="alternate" hreflang="x-default" href={new URL(currentPath.replace(`/${locale}/`, '/en/'), Astro.site).href} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a href={`/${locale}/`} class="site-logo">IntentAge</a>
+    <div class="lang-switcher">
+      <button class="lang-switcher-btn" id="langBtn">
+        {localeNames[locale]}
+      </button>
+      <div class="lang-dropdown" id="langDropdown">
+        {locales.map(l => {
+          const targetPath = currentPath.replace(`/${locale}/`, `/${l}/`);
+          return (
+            <a href={targetPath} class={l === locale ? 'active' : ''}>
+              {localeNames[l]}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    Intent Age &copy; {new Date().getFullYear()}
+  </footer>
+
+  <script>
+    const btn = document.getElementById('langBtn');
+    const dropdown = document.getElementById('langDropdown');
+    btn?.addEventListener('click', () => dropdown?.classList.toggle('open'));
+    document.addEventListener('click', (e) => {
+      if (!btn?.contains(e.target as Node) && !dropdown?.contains(e.target as Node)) {
+        dropdown?.classList.remove('open');
+      }
+    });
+  </script>
+</body>
+</html>
