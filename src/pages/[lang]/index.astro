@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import '../../styles/global.css';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 export const prerender = true;
 
@@ -15,21 +15,58 @@ const allPosts = await getCollection('posts');
 const posts = allPosts
   .filter(post => post.id.startsWith(`${lang}/`))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const readMoreText: Record<string, string> = {
+  tr: 'Devamını oku',
+  en: 'Read more',
+  ar: 'اقرأ المزيد',
+  de: 'Weiterlesen',
+  fr: 'Lire la suite',
+  es: 'Leer más',
+  it: 'Continua a leggere',
+  pt: 'Ler mais',
+  ru: 'Читать далее',
+  ja: '続きを読む',
+  ko: '더 읽기',
+  zh: '继续阅读',
+  nl: 'Lees verder',
+};
+
+// Get first ~8 paragraphs of each post as preview
+async function getPreview(post: any) {
+  const { Content } = await render(post);
+  return Content;
+}
 ---
 
 <BaseLayout title="IntentAge" locale={lang}>
-  <ul class="post-list">
-    {posts.map(post => {
-      const slug = post.id.split('/').pop()?.replace('.md', '') || post.id;
-      return (
-        <li class="post-list-item">
-          <a href={`/${lang}/posts/${post.data.slug}/`}>
-            <div class="post-list-date">{post.data.date}</div>
-            <h2 class="post-list-title">{post.data.title}</h2>
-            <p class="post-list-excerpt">{post.data.excerpt}</p>
-          </a>
-        </li>
-      );
-    })}
-  </ul>
+  {posts.map(async (post) => {
+    const body = post.body || '';
+    const paragraphs = body.split('\n\n').filter((p: string) => p.trim().length > 0);
+    const previewText = paragraphs.slice(0, 8).join('\n\n');
+
+    return (
+      <article class="post-preview">
+        <div class="post-header">
+          <div class="post-date">{post.data.date}</div>
+          <h1 class="post-title">
+            <a href={`/${lang}/posts/${post.data.slug}/`}>{post.data.title}</a>
+          </h1>
+        </div>
+        <div class="post-body post-preview-body">
+          {paragraphs.slice(0, 8).map((p: string) => {
+            const isBold = p.startsWith('**') && p.endsWith('**');
+            if (isBold) {
+              return <p><strong>{p.replace(/\*\*/g, '')}</strong></p>;
+            }
+            return <p>{p}</p>;
+          })}
+        </div>
+        <div class="post-preview-fade"></div>
+        <a href={`/${lang}/posts/${post.data.slug}/`} class="read-more">
+          {readMoreText[lang] || 'Read more'} →
+        </a>
+      </article>
+    );
+  })}
 </BaseLayout>
