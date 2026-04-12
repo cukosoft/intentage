@@ -1,0 +1,19 @@
+---
+title: "Gli Sciacalli della Nuova Era"
+slug: "jackals-of-the-new-age"
+locale: "it"
+excerpt: "I venditori di corsi, gli automatizzatori, quelli che ti fanno guadagnare mentre dormi."
+date: "2026-04-12"
+---
+
+L'AI ha provocato una rottura storica. Alcune persone ci hanno visto un nuovo livello di produzione. Altre hanno visto le catene tecniche allentarsi, la distanza tra l'intenzione umana e il risultato accorciarsi come mai prima. E poi sono comparsi gli sciacalli. Compaiono ad ogni svolta d'epoca. Nasce un nuovo potere, ci si avventano sopra. Non cercano di capire cosa rende possibile, quale vecchio ordine scuote, quale nuovo territorio apre. L'unica cosa che chiedono e: "Come lo trasformo in una fregatura?"
+
+Poi partono le solite stronzate: "Claude in 10 passi." "Guadagno soldi mentre dormo." "Ho fatto fare 10 ore di lavoro in 10 minuti." "Lavora al posto tuo." "Monta questo e ti piovono clienti." "Ho creato un'agenzia con l'AI." "Zero sforzo, output infinito." Si apre un'era, questi vendono corsi. Si verifica una rottura produttiva, questi spiegano tattiche di spam. L'attrito storico tra l'uomo e il risultato si dissolve, questi continuano a sfornare contenuti chiedendosi "quanti post buttiamo fuori al giorno".
+
+Il problema non e che guadagnano soldi. Certo che si guadagnera. Ma quando hai un potere del genere tra le mani e l'unica cosa che ti viene in mente sono mail automatiche, vomitare contenuti artificiali, spremere clienti, produttivita fasulla e fantasie di manodopera gratis, non hai visione. Hai solo sciacallaggio. Perche sei incapace di vedere l'AI come un'espansione della mente. Come una rottura produttiva. Come un veicolo per portare l'intenzione. La tua immaginazione arriva al massimo al livello di piu funnel, piu lead, piu automazione, piu trucchi di vendita. La tecnologia sale, la tua immaginazione scende.
+
+La parte piu rivoltante e proprio questa. Prendete una rottura che potrebbe cambiare il mondo e la abbassate al livello di un trucchetto da TikTok. Avete la stampa tra le mani e festeggiate la stampa di volantini pirata. Avete un motore tra le mani e vi pavoneggiate con un'autoscontro da luna park. Avete un nuovo livello di produzione tra le mani e continuate a girare video su "come far piovere clienti". E poi vi vendete senza nessuna vergogna come le guide della nuova era. Tre prompt memorizzati e ti credi un profeta, due automazioni collegate e racconti la rivoluzione, una dashboard vista e credi che la civilta sia stata rifondata — questa e una pagliacceria da social media.
+
+Questi sono le puttane del marketing della nuova era. Degradano tutto quello che gli capita tra le mani. Trasformano ogni potere in fregatura. Abbassano ogni opportunita a furbizia da quattro soldi. Non elevano la tecnologia; la fanno mendicare. E peggio ancora, trascinano verso il basso anche l'orizzonte della gente. Quando qualcuno vede l'AI, le domande che dovrebbero venirgli sono "quale attrito scompare, quale modo di produzione crolla, quali nuove istituzioni possono nascere"; ma a questi viene in mente solo "quanti contenuti buttiamo fuori, quante mail mandiamo, quanti clienti spremiamo, quanti corsi vendiamo".
+
+Questa non e solo avidita. E un'immaginazione da quattro soldi. Non e nemmeno immaginazione; e riflesso. Riflesso di mercato. Riflesso da sensale. Riflesso da mosca che si avventa sull'odore di carogna. La cosa piu entusiasmante della nuova era e che l'intenzione umana per la prima volta puo fluire nella produzione con perdite minime. Se stai ancora vendendo questa roba come "corso Claude in 10 passi", non hai visto il futuro. Hai visto solo la folla. E quando hai visto la folla, hai fatto la stessa cosa di sempre: hai urlato, hai abbellito, hai impacchettato, hai venduto. Perche non sei un fondatore. Non sei un produttore. Non sei un pensatore. Sei solo lo sciacallo della nuova era.
