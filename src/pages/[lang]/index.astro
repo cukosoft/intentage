@@ -12,9 +12,33 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const allPosts = await getCollection('posts');
+const pinnedSlugs = new Set(['niyet-kaybinin-olumu', 'death-of-intent-loss']);
+
+function getPreviewParagraphs(body: string, fallback: string) {
+  const paragraphs = body
+    .split(/\r?\n\r?\n/)
+    .map((part) => part.replace(/\*\*/g, '').replace(/\r?\n/g, ' ').trim())
+    .filter((part) => part.length > 0)
+    .slice(0, 3);
+
+  return paragraphs.length > 0 ? paragraphs : [fallback];
+}
+
 const posts = allPosts
   .filter(post => post.id.startsWith(`${lang}/`))
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  .sort((a, b) => {
+    const aPinned = pinnedSlugs.has(a.data.slug);
+    const bPinned = pinnedSlugs.has(b.data.slug);
+
+    if (aPinned && !bPinned) return -1;
+    if (!aPinned && bPinned) return 1;
+
+    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+  })
+  .map((post) => ({
+    ...post,
+    previewParagraphs: getPreviewParagraphs(post.body, post.data.excerpt),
+  }));
 
 const i18n: Record<string, {
   subtitle: string;
@@ -238,7 +262,11 @@ const t = i18n[lang] || i18n.en;
         <li class="landing-post-item">
           <a href={`/${lang}/posts/${post.data.slug}/`}>
             <span class="landing-post-title">{post.data.title}</span>
-            <span class="landing-post-excerpt">{post.data.excerpt}</span>
+            <span class="landing-post-preview">
+              {post.previewParagraphs.map((paragraph) => (
+                <span class="landing-post-paragraph">{paragraph}</span>
+              ))}
+            </span>
           </a>
         </li>
       ))}
