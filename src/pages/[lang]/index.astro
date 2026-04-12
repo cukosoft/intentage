@@ -240,6 +240,7 @@ const i18n: Record<string, {
 
 const t = i18n[lang] || i18n.en;
 const readMoreLabel = lang === 'tr' ? 'Devamını gör' : 'Continue reading';
+const subscribeActionLabel = lang === 'tr' ? 'Katıl' : 'Join';
 ---
 
 <BaseLayout title="Intent Age" locale={lang}>
@@ -309,7 +310,7 @@ const readMoreLabel = lang === 'tr' ? 'Devamını gör' : 'Continue reading';
     <p class="landing-signal-text">{t.signal}</p>
     <form class="landing-subscribe" id="subscribeForm">
       <input type="email" name="email" placeholder={t.emailPlaceholder} required class="subscribe-input" />
-      <button type="submit" class="landing-btn landing-btn-primary">{t.subscribe}</button>
+      <button type="submit" class="landing-btn landing-btn-primary">{subscribeActionLabel}</button>
     </form>
     <p class="subscribe-thanks" id="subscribeThanks" style="display:none">{t.thankYou}</p>
   </section>
