@@ -6,27 +6,26 @@ interface Props {
 const { locale } = Astro.props;
 
 const i18n: Record<string, { heading: string; subtext: string; emailPlaceholder: string; emailButton: string; rssText: string; pushText: string; thankYou: string }> = {
-  tr: { heading: 'Takipte kal', subtext: 'Yeni yazılardan haberdar ol.', emailPlaceholder: 'E-posta adresin', emailButton: 'Abone ol', rssText: 'RSS', pushText: 'Bildirim al', thankYou: 'Teşekkürler.' },
-  en: { heading: 'Stay in the loop', subtext: 'Get notified when new posts arrive.', emailPlaceholder: 'Your email', emailButton: 'Subscribe', rssText: 'RSS', pushText: 'Get notified', thankYou: 'Thank you.' },
-  ar: { heading: 'ابقَ على اطلاع', subtext: 'احصل على إشعار عند نشر مقالات جديدة.', emailPlaceholder: 'بريدك الإلكتروني', emailButton: 'اشترك', rssText: 'RSS', pushText: 'تلقي إشعارات', thankYou: 'شكراً لك.' },
-  de: { heading: 'Dranbleiben', subtext: 'Erfahre, wenn neue Beiträge erscheinen.', emailPlaceholder: 'Deine E-Mail', emailButton: 'Abonnieren', rssText: 'RSS', pushText: 'Benachrichtigung', thankYou: 'Danke.' },
-  fr: { heading: 'Restez informé', subtext: 'Soyez notifié des nouveaux articles.', emailPlaceholder: 'Votre email', emailButton: "S'abonner", rssText: 'RSS', pushText: 'Notifications', thankYou: 'Merci.' },
-  es: { heading: 'Mantente al día', subtext: 'Recibe aviso de nuevas publicaciones.', emailPlaceholder: 'Tu email', emailButton: 'Suscribirse', rssText: 'RSS', pushText: 'Notificaciones', thankYou: 'Gracias.' },
-  it: { heading: 'Resta aggiornato', subtext: 'Ricevi notifica dei nuovi articoli.', emailPlaceholder: 'La tua email', emailButton: 'Iscriviti', rssText: 'RSS', pushText: 'Notifiche', thankYou: 'Grazie.' },
-  pt: { heading: 'Fique por dentro', subtext: 'Receba aviso de novas publicações.', emailPlaceholder: 'Seu email', emailButton: 'Assinar', rssText: 'RSS', pushText: 'Notificações', thankYou: 'Obrigado.' },
-  ru: { heading: 'Оставайтесь в курсе', subtext: 'Узнавайте о новых публикациях.', emailPlaceholder: 'Ваш email', emailButton: 'Подписаться', rssText: 'RSS', pushText: 'Уведомления', thankYou: 'Спасибо.' },
-  ja: { heading: 'フォローする', subtext: '新しい記事の通知を受け取る。', emailPlaceholder: 'メールアドレス', emailButton: '登録', rssText: 'RSS', pushText: '通知を受け取る', thankYou: 'ありがとう。' },
-  ko: { heading: '소식 받기', subtext: '새 글이 올라오면 알려드립니다.', emailPlaceholder: '이메일 주소', emailButton: '구독', rssText: 'RSS', pushText: '알림 받기', thankYou: '감사합니다.' },
-  zh: { heading: '保持关注', subtext: '新文章发布时收到通知。', emailPlaceholder: '你的邮箱', emailButton: '订阅', rssText: 'RSS', pushText: '接收通知', thankYou: '谢谢。' },
-  nl: { heading: 'Blijf op de hoogte', subtext: 'Ontvang bericht bij nieuwe artikelen.', emailPlaceholder: 'Je e-mail', emailButton: 'Abonneren', rssText: 'RSS', pushText: 'Meldingen', thankYou: 'Bedankt.' },
+  tr: { heading: 'Bir sonraki yazıyı kaçırma', subtext: '', emailPlaceholder: 'E-posta', emailButton: '→', rssText: 'RSS', pushText: 'Bildirim', thankYou: 'Kayıt alındı.' },
+  en: { heading: "Don't miss the next one", subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Notify', thankYou: 'Noted.' },
+  ar: { heading: 'لا تفوّت القادم', subtext: '', emailPlaceholder: 'البريد', emailButton: '→', rssText: 'RSS', pushText: 'إشعار', thankYou: 'تم.' },
+  de: { heading: 'Den nächsten nicht verpassen', subtext: '', emailPlaceholder: 'E-Mail', emailButton: '→', rssText: 'RSS', pushText: 'Meldung', thankYou: 'Notiert.' },
+  fr: { heading: 'Ne manquez pas le prochain', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Notifier', thankYou: 'Noté.' },
+  es: { heading: 'No te pierdas el siguiente', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Avisar', thankYou: 'Anotado.' },
+  it: { heading: 'Non perderti il prossimo', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Notifica', thankYou: 'Registrato.' },
+  pt: { heading: 'Não perca o próximo', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Avisar', thankYou: 'Anotado.' },
+  ru: { heading: 'Не пропустите следующий', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Оповещение', thankYou: 'Записано.' },
+  ja: { heading: '次を見逃さない', subtext: '', emailPlaceholder: 'メール', emailButton: '→', rssText: 'RSS', pushText: '通知', thankYou: '完了。' },
+  ko: { heading: '다음 글을 놓치지 마세요', subtext: '', emailPlaceholder: '이메일', emailButton: '→', rssText: 'RSS', pushText: '알림', thankYou: '등록됨.' },
+  zh: { heading: '别错过下一篇', subtext: '', emailPlaceholder: '邮箱', emailButton: '→', rssText: 'RSS', pushText: '通知', thankYou: '已记录。' },
+  nl: { heading: 'Mis de volgende niet', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Melding', thankYou: 'Genoteerd.' },
 };
 
 const t = i18n[locale] || i18n.en;
 ---
 
 <section class="subscribe-section">
-  <h3 class="subscribe-heading">{t.heading}</h3>
-  <p class="subscribe-subtext">{t.subtext}</p>
+  <p class="subscribe-heading">{t.heading}</p>
 
   <div class="subscribe-options">
     <!-- Email -->

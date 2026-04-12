@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SubscribeSection from '../../components/SubscribeSection.astro';
 import '../../styles/global.css';
 import { getCollection, render } from 'astro:content';
 
@@ -69,4 +70,6 @@ async function getPreview(post: any) {
       </article>
     );
   })}
+
+  <SubscribeSection locale={lang} />
 </BaseLayout>
