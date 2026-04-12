@@ -33,6 +33,9 @@ const localeFlags: Record<string, string> = {
 
 const dir = locale === 'ar' ? 'rtl' : 'ltr';
 const currentPath = Astro.url.pathname;
+const canonicalUrl = new URL(currentPath, Astro.site).href;
+const ogTitle = title === 'IntentAge' ? 'Intent Age — Where intent becomes interface.' : title;
+const ogDescription = description;
 ---
 
 <!DOCTYPE html>
@@ -49,6 +52,43 @@ const currentPath = Astro.url.pathname;
   })}
   <link rel="alternate" hreflang="x-default" href={new URL(currentPath.replace(`/${locale}/`, '/en/'), Astro.site).href} />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Intent Age RSS" href={`/rss.xml?lang=${locale}`} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:site_name" content="Intent Age" />
+  <meta property="og:locale" content={locale} />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={ogTitle} />
+  <meta name="twitter:description" content={ogDescription} />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": slug ? "Article" : "WebSite",
+    "name": ogTitle,
+    "description": ogDescription,
+    "url": canonicalUrl,
+    "inLanguage": locale,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Intent Age",
+      "url": "https://intentage.com"
+    },
+    ...(slug ? {
+      "headline": title,
+      "datePublished": "2026-04-12",
+      "author": {
+        "@type": "Person",
+        "name": "Ahmet Kaya"
+      }
+    } : {})
+  })} />
   <style is:global>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap');
   </style>
