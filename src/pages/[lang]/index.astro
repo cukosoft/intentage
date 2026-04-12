@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import SubscribeSection from '../../components/SubscribeSection.astro';
 import '../../styles/global.css';
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export const prerender = true;
 
@@ -17,59 +16,279 @@ const posts = allPosts
   .filter(post => post.id.startsWith(`${lang}/`))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-const readMoreText: Record<string, string> = {
-  tr: 'Devamını oku',
-  en: 'Read more',
-  ar: 'اقرأ المزيد',
-  de: 'Weiterlesen',
-  fr: 'Lire la suite',
-  es: 'Leer más',
-  it: 'Continua a leggere',
-  pt: 'Ler mais',
-  ru: 'Читать далее',
-  ja: '続きを読む',
-  ko: '더 읽기',
-  zh: '继续阅读',
-  nl: 'Lees verder',
+const i18n: Record<string, {
+  tagline: string;
+  forHumans: string;
+  forMachines: string;
+  read: string;
+  forAgents: string;
+  startHere: string;
+  signal: string;
+  subscribe: string;
+  docs: string;
+  discovery: string;
+  emailPlaceholder: string;
+  thankYou: string;
+}> = {
+  tr: {
+    tagline: 'AI çağında niyet ve üretim üzerine.',
+    forHumans: 'Yazılar insanlar için.',
+    forMachines: 'Arayüzler makineler için.',
+    read: 'Oku',
+    forAgents: 'For Agents',
+    startHere: 'Başlangıç için',
+    signal: 'Sinyali al.',
+    subscribe: 'Abone ol',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'E-posta',
+    thankYou: 'Kayıt alındı.',
+  },
+  en: {
+    tagline: 'On intent and production in the age of AI.',
+    forHumans: 'Writing is for humans.',
+    forMachines: 'Interfaces are for machines.',
+    read: 'Read',
+    forAgents: 'For Agents',
+    startHere: 'Start here',
+    signal: 'Get the signal.',
+    subscribe: 'Subscribe',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'Email',
+    thankYou: 'Noted.',
+  },
+  ar: {
+    tagline: 'عن النية والإنتاج في عصر الذكاء الاصطناعي.',
+    forHumans: 'الكتابة للبشر.',
+    forMachines: 'الواجهات للآلات.',
+    read: 'اقرأ',
+    forAgents: 'For Agents',
+    startHere: 'ابدأ من هنا',
+    signal: 'التقط الإشارة.',
+    subscribe: 'اشترك',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'البريد',
+    thankYou: 'تم.',
+  },
+  de: {
+    tagline: 'Über Absicht und Produktion im Zeitalter der KI.',
+    forHumans: 'Texte sind für Menschen.',
+    forMachines: 'Schnittstellen sind für Maschinen.',
+    read: 'Lesen',
+    forAgents: 'For Agents',
+    startHere: 'Hier beginnen',
+    signal: 'Signal empfangen.',
+    subscribe: 'Abonnieren',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'E-Mail',
+    thankYou: 'Notiert.',
+  },
+  fr: {
+    tagline: "Sur l'intention et la production à l'ère de l'IA.",
+    forHumans: "L'écriture est pour les humains.",
+    forMachines: 'Les interfaces sont pour les machines.',
+    read: 'Lire',
+    forAgents: 'For Agents',
+    startHere: 'Commencer ici',
+    signal: 'Capter le signal.',
+    subscribe: "S'abonner",
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'Email',
+    thankYou: 'Noté.',
+  },
+  es: {
+    tagline: 'Sobre la intención y la producción en la era de la IA.',
+    forHumans: 'Los textos son para humanos.',
+    forMachines: 'Las interfaces son para máquinas.',
+    read: 'Leer',
+    forAgents: 'For Agents',
+    startHere: 'Empieza aquí',
+    signal: 'Capta la señal.',
+    subscribe: 'Suscribirse',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'Email',
+    thankYou: 'Anotado.',
+  },
+  it: {
+    tagline: "Su intenzione e produzione nell'era dell'IA.",
+    forHumans: 'La scrittura è per gli umani.',
+    forMachines: 'Le interfacce sono per le macchine.',
+    read: 'Leggi',
+    forAgents: 'For Agents',
+    startHere: 'Inizia qui',
+    signal: 'Ricevi il segnale.',
+    subscribe: 'Iscriviti',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'Email',
+    thankYou: 'Registrato.',
+  },
+  pt: {
+    tagline: 'Sobre intenção e produção na era da IA.',
+    forHumans: 'Textos são para humanos.',
+    forMachines: 'Interfaces são para máquinas.',
+    read: 'Ler',
+    forAgents: 'For Agents',
+    startHere: 'Comece aqui',
+    signal: 'Capte o sinal.',
+    subscribe: 'Assinar',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'Email',
+    thankYou: 'Anotado.',
+  },
+  ru: {
+    tagline: 'О намерении и производстве в эпоху ИИ.',
+    forHumans: 'Тексты для людей.',
+    forMachines: 'Интерфейсы для машин.',
+    read: 'Читать',
+    forAgents: 'For Agents',
+    startHere: 'Начните здесь',
+    signal: 'Поймай сигнал.',
+    subscribe: 'Подписаться',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'Email',
+    thankYou: 'Записано.',
+  },
+  ja: {
+    tagline: 'AI時代の意図と生産について。',
+    forHumans: '文章は人間のために。',
+    forMachines: 'インターフェースは機械のために。',
+    read: '読む',
+    forAgents: 'For Agents',
+    startHere: 'ここから始める',
+    signal: 'シグナルを受け取る。',
+    subscribe: '登録',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'メール',
+    thankYou: '完了。',
+  },
+  ko: {
+    tagline: 'AI 시대의 의도와 생산에 대하여.',
+    forHumans: '글은 사람을 위해.',
+    forMachines: '인터페이스는 기계를 위해.',
+    read: '읽기',
+    forAgents: 'For Agents',
+    startHere: '여기서 시작',
+    signal: '신호를 받아라.',
+    subscribe: '구독',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: '이메일',
+    thankYou: '등록됨.',
+  },
+  zh: {
+    tagline: '关于AI时代的意图与生产。',
+    forHumans: '文字为人而写。',
+    forMachines: '接口为机器而建。',
+    read: '阅读',
+    forAgents: 'For Agents',
+    startHere: '从这里开始',
+    signal: '接收信号。',
+    subscribe: '订阅',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: '邮箱',
+    thankYou: '已记录。',
+  },
+  nl: {
+    tagline: 'Over intentie en productie in het AI-tijdperk.',
+    forHumans: 'Teksten zijn voor mensen.',
+    forMachines: 'Interfaces zijn voor machines.',
+    read: 'Lezen',
+    forAgents: 'For Agents',
+    startHere: 'Begin hier',
+    signal: 'Vang het signaal.',
+    subscribe: 'Abonneren',
+    docs: 'Docs',
+    discovery: 'Discovery',
+    emailPlaceholder: 'Email',
+    thankYou: 'Genoteerd.',
+  },
 };
 
-// Get first ~8 paragraphs of each post as preview
-async function getPreview(post: any) {
-  const { Content } = await render(post);
-  return Content;
-}
+const t = i18n[lang] || i18n.en;
 ---
 
-<BaseLayout title="IntentAge" locale={lang}>
-  {posts.map(async (post) => {
-    const body = post.body || '';
-    const paragraphs = body.split('\n\n').filter((p: string) => p.trim().length > 0);
-    const previewText = paragraphs.slice(0, 8).join('\n\n');
+<BaseLayout title="Intent Age" locale={lang}>
+  <!-- Hero -->
+  <section class="landing-hero">
+    <p class="landing-tagline">{t.tagline}</p>
+    <div class="landing-dual">
+      <p class="landing-dual-line">{t.forHumans}</p>
+      <p class="landing-dual-line landing-muted">{t.forMachines}</p>
+    </div>
+    <div class="landing-cta">
+      <a href={`#start`} class="landing-btn landing-btn-primary">{t.read}</a>
+      <a href={`#agents`} class="landing-btn landing-btn-secondary">{t.forAgents}</a>
+    </div>
+  </section>
 
-    return (
-      <article class="post-preview">
-        <div class="post-header">
-          <div class="post-date">{post.data.date}</div>
-          <h1 class="post-title">
-            <a href={`/${lang}/posts/${post.data.slug}/`}>{post.data.title}</a>
-          </h1>
-        </div>
-        <div class="post-body post-preview-body">
-          {paragraphs.slice(0, 8).map((p: string) => {
-            const isBold = p.startsWith('**') && p.endsWith('**');
-            if (isBold) {
-              return <p><strong>{p.replace(/\*\*/g, '')}</strong></p>;
-            }
-            return <p>{p}</p>;
-          })}
-        </div>
-        <div class="post-preview-fade"></div>
-        <a href={`/${lang}/posts/${post.data.slug}/`} class="read-more">
-          {readMoreText[lang] || 'Read more'} →
-        </a>
-      </article>
-    );
-  })}
+  <!-- Start Here -->
+  <section class="landing-section" id="start">
+    <h2 class="landing-section-title">{t.startHere}</h2>
+    <ul class="landing-posts">
+      {posts.map(post => (
+        <li class="landing-post-item">
+          <a href={`/${lang}/posts/${post.data.slug}/`}>
+            <span class="landing-post-title">{post.data.title}</span>
+            <span class="landing-post-excerpt">{post.data.excerpt}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
 
-  <SubscribeSection locale={lang} />
+  <!-- For Agents -->
+  <section class="landing-section" id="agents">
+    <h2 class="landing-section-title">{t.forAgents}</h2>
+    <div class="landing-agents">
+      <a href="/mcp" class="landing-agent-link">
+        <span class="landing-agent-label">MCP</span>
+      </a>
+      <a href={`/rss.xml?lang=${lang}`} class="landing-agent-link">
+        <span class="landing-agent-label">{t.docs}</span>
+      </a>
+      <a href="/sitemap-index.xml" class="landing-agent-link">
+        <span class="landing-agent-label">{t.discovery}</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Signal -->
+  <section class="landing-section landing-signal">
+    <p class="landing-signal-text">{t.signal}</p>
+    <form class="landing-subscribe" id="subscribeForm">
+      <input type="email" name="email" placeholder={t.emailPlaceholder} required class="subscribe-input" />
+      <button type="submit" class="landing-btn landing-btn-primary">{t.subscribe}</button>
+    </form>
+    <p class="subscribe-thanks" id="subscribeThanks" style="display:none">{t.thankYou}</p>
+  </section>
+
+  <script>
+    const form = document.getElementById('subscribeForm') as HTMLFormElement;
+    const thanks = document.getElementById('subscribeThanks');
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = new FormData(form).get('email') as string;
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          if (thanks) thanks.style.display = 'block';
+        }
+      } catch {}
+    });
+  </script>
 </BaseLayout>
