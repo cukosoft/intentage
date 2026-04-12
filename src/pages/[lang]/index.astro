@@ -241,6 +241,9 @@ const i18n: Record<string, {
 const t = i18n[lang] || i18n.en;
 const readMoreLabel = lang === 'tr' ? 'Devamını gör' : 'Continue reading';
 const subscribeActionLabel = lang === 'tr' ? 'Katıl' : 'Join';
+const subscribeErrorText = lang === 'tr'
+  ? 'Su an kayit alinamadi. Lutfen biraz sonra tekrar dene.'
+  : 'Subscription is unavailable right now. Please try again shortly.';
 ---
 
 <BaseLayout title="Intent Age" locale={lang}>
@@ -310,14 +313,17 @@ const subscribeActionLabel = lang === 'tr' ? 'Katıl' : 'Join';
       <button type="submit" class="landing-btn landing-btn-primary">{subscribeActionLabel}</button>
     </form>
     <p class="subscribe-thanks" id="subscribeThanks" style="display:none">{t.thankYou}</p>
+    <p class="subscribe-thanks" id="subscribeError" style="display:none">{subscribeErrorText}</p>
   </section>
 
   <script>
     const form = document.getElementById('subscribeForm') as HTMLFormElement;
     const thanks = document.getElementById('subscribeThanks');
+    const error = document.getElementById('subscribeError');
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const email = new FormData(form).get('email') as string;
+      if (error) error.style.display = 'none';
       try {
         const res = await fetch('/api/subscribe', {
           method: 'POST',
@@ -327,8 +333,12 @@ const subscribeActionLabel = lang === 'tr' ? 'Katıl' : 'Join';
         if (res.ok) {
           form.style.display = 'none';
           if (thanks) thanks.style.display = 'block';
+          return;
         }
-      } catch {}
+        if (error) error.style.display = 'block';
+      } catch {
+        if (error) error.style.display = 'block';
+      }
     });
   </script>
 </BaseLayout>

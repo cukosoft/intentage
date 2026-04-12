@@ -5,20 +5,149 @@ interface Props {
 
 const { locale } = Astro.props;
 
-const i18n: Record<string, { heading: string; subtext: string; emailPlaceholder: string; emailButton: string; rssText: string; pushText: string; thankYou: string }> = {
-  tr: { heading: 'Bir sonraki yazıyı kaçırma', subtext: '', emailPlaceholder: 'E-posta', emailButton: '→', rssText: 'RSS', pushText: 'Bildirim', thankYou: 'Kayıt alındı.' },
-  en: { heading: "Don't miss the next one", subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Notify', thankYou: 'Noted.' },
-  ar: { heading: 'لا تفوّت القادم', subtext: '', emailPlaceholder: 'البريد', emailButton: '→', rssText: 'RSS', pushText: 'إشعار', thankYou: 'تم.' },
-  de: { heading: 'Den nächsten nicht verpassen', subtext: '', emailPlaceholder: 'E-Mail', emailButton: '→', rssText: 'RSS', pushText: 'Meldung', thankYou: 'Notiert.' },
-  fr: { heading: 'Ne manquez pas le prochain', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Notifier', thankYou: 'Noté.' },
-  es: { heading: 'No te pierdas el siguiente', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Avisar', thankYou: 'Anotado.' },
-  it: { heading: 'Non perderti il prossimo', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Notifica', thankYou: 'Registrato.' },
-  pt: { heading: 'Não perca o próximo', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Avisar', thankYou: 'Anotado.' },
-  ru: { heading: 'Не пропустите следующий', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Оповещение', thankYou: 'Записано.' },
-  ja: { heading: '次を見逃さない', subtext: '', emailPlaceholder: 'メール', emailButton: '→', rssText: 'RSS', pushText: '通知', thankYou: '完了。' },
-  ko: { heading: '다음 글을 놓치지 마세요', subtext: '', emailPlaceholder: '이메일', emailButton: '→', rssText: 'RSS', pushText: '알림', thankYou: '등록됨.' },
-  zh: { heading: '别错过下一篇', subtext: '', emailPlaceholder: '邮箱', emailButton: '→', rssText: 'RSS', pushText: '通知', thankYou: '已记录。' },
-  nl: { heading: 'Mis de volgende niet', subtext: '', emailPlaceholder: 'Email', emailButton: '→', rssText: 'RSS', pushText: 'Melding', thankYou: 'Genoteerd.' },
+const i18n: Record<
+  string,
+  {
+    heading: string;
+    subtext: string;
+    emailPlaceholder: string;
+    emailButton: string;
+    rssText: string;
+    pushText: string;
+    thankYou: string;
+    errorText: string;
+  }
+> = {
+  tr: {
+    heading: 'Bir sonraki yaziyi kacirma',
+    subtext: '',
+    emailPlaceholder: 'E-posta',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Bildirim',
+    thankYou: 'Kayit alindi.',
+    errorText: 'Su an kayit alinamadi. Lutfen biraz sonra tekrar dene.',
+  },
+  en: {
+    heading: "Don't miss the next one",
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notify',
+    thankYou: 'Noted.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  ar: {
+    heading: "Don't miss the next one",
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notify',
+    thankYou: 'Noted.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  de: {
+    heading: 'Den nachsten nicht verpassen',
+    subtext: '',
+    emailPlaceholder: 'E-Mail',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Meldung',
+    thankYou: 'Notiert.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  fr: {
+    heading: 'Ne manquez pas le prochain',
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notifier',
+    thankYou: 'Note.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  es: {
+    heading: 'No te pierdas el siguiente',
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Avisar',
+    thankYou: 'Anotado.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  it: {
+    heading: 'Non perderti il prossimo',
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notifica',
+    thankYou: 'Registrato.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  pt: {
+    heading: 'Nao perca o proximo',
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Avisar',
+    thankYou: 'Anotado.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  ru: {
+    heading: "Don't miss the next one",
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notify',
+    thankYou: 'Noted.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  ja: {
+    heading: "Don't miss the next one",
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notify',
+    thankYou: 'Noted.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  ko: {
+    heading: "Don't miss the next one",
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notify',
+    thankYou: 'Noted.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  zh: {
+    heading: "Don't miss the next one",
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Notify',
+    thankYou: 'Noted.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
+  nl: {
+    heading: 'Mis de volgende niet',
+    subtext: '',
+    emailPlaceholder: 'Email',
+    emailButton: '->',
+    rssText: 'RSS',
+    pushText: 'Melding',
+    thankYou: 'Genoteerd.',
+    errorText: 'Subscription is unavailable right now. Please try again shortly.',
+  },
 };
 
 const t = i18n[locale] || i18n.en;
@@ -28,20 +157,17 @@ const t = i18n[locale] || i18n.en;
   <p class="subscribe-heading">{t.heading}</p>
 
   <div class="subscribe-options">
-    <!-- Email -->
     <form class="subscribe-email" id="subscribeForm">
       <input type="email" name="email" placeholder={t.emailPlaceholder} required class="subscribe-input" />
       <button type="submit" class="subscribe-btn">{t.emailButton}</button>
     </form>
 
     <div class="subscribe-alt">
-      <!-- RSS -->
       <a href={`/rss.xml?lang=${locale}`} class="subscribe-link" target="_blank" rel="noopener">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
         {t.rssText}
       </a>
 
-      <!-- Push -->
       <button class="subscribe-link subscribe-push" id="pushBtn" type="button">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
         {t.pushText}
@@ -50,36 +176,46 @@ const t = i18n[locale] || i18n.en;
   </div>
 
   <p class="subscribe-thanks" id="subscribeThanks" style="display:none">{t.thankYou}</p>
+  <p class="subscribe-thanks" id="subscribeError" style="display:none">{t.errorText}</p>
 </section>
 
 <script>
-  // Email subscribe
-  const form = document.getElementById('subscribeForm') as HTMLFormElement;
+  const form = document.getElementById('subscribeForm');
   const thanks = document.getElementById('subscribeThanks');
-  form?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = new FormData(form).get('email') as string;
+  const error = document.getElementById('subscribeError');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const email = new FormData(form).get('email');
+    if (error) error.style.display = 'none';
+
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       });
+
       if (res.ok) {
         form.style.display = 'none';
         if (thanks) thanks.style.display = 'block';
+        return;
       }
-    } catch {}
+
+      if (error) error.style.display = 'block';
+    } catch {
+      if (error) error.style.display = 'block';
+    }
   });
 
-  // Push notifications
   const pushBtn = document.getElementById('pushBtn');
   pushBtn?.addEventListener('click', async () => {
     if (!('Notification' in window) || !('serviceWorker' in navigator)) return;
     const permission = await Notification.requestPermission();
     if (permission === 'granted') {
       await navigator.serviceWorker.register('/sw.js');
-      pushBtn.textContent = '✓';
+      pushBtn.textContent = 'OK';
       pushBtn.setAttribute('disabled', 'true');
     }
   });
