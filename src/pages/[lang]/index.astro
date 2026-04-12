@@ -239,6 +239,7 @@ const i18n: Record<string, {
 };
 
 const t = i18n[lang] || i18n.en;
+const readMoreLabel = lang === 'tr' ? 'Devamını gör' : 'Continue reading';
 ---
 
 <BaseLayout title="Intent Age" locale={lang}>
@@ -267,6 +268,7 @@ const t = i18n[lang] || i18n.en;
                 <span class="landing-post-paragraph">{paragraph}</span>
               ))}
             </span>
+            <span class="landing-post-readmore">{readMoreLabel}</span>
           </a>
         </li>
       ))}
