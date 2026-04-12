@@ -82,6 +82,11 @@ const currentPath = Astro.url.pathname;
   </footer>
 
   <script>
+    import { inject } from '@vercel/analytics';
+    inject();
+  </script>
+
+  <script>
     const btn = document.getElementById('langBtn');
     const dropdown = document.getElementById('langDropdown');
     btn?.addEventListener('click', () => dropdown?.classList.toggle('open'));
