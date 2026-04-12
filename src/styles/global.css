@@ -313,8 +313,8 @@ main {
 }
 
 .landing-section#agents {
-  margin-top: 3.5rem;
-  padding-top: 4.25rem;
+  margin-top: 6.5rem;
+  padding-top: 6rem;
 }
 
 .landing-section-title {
@@ -330,6 +330,7 @@ main {
 
 .landing-posts {
   list-style: none;
+  padding-bottom: 4.5rem;
 }
 
 .landing-post-item {
@@ -594,8 +595,8 @@ main {
   }
 
   .landing-section#agents {
-    margin-top: 2.5rem;
-    padding-top: 3rem;
+    margin-top: 4.5rem;
+    padding-top: 4rem;
   }
 
   .landing-agents {
