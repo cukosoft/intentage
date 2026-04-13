@@ -1,4 +1,6 @@
 ---
+import SpeedInsights from '@vercel/speed-insights/astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -120,6 +122,8 @@ const ogDescription = description;
   <footer class="site-footer">
     Intent Age &copy; {new Date().getFullYear()}
   </footer>
+
+  <SpeedInsights />
 
   <script>
     import { inject } from '@vercel/analytics';
