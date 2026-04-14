@@ -13,7 +13,7 @@ One group still insists nothing has changed.
 "Learn the fundamentals first."
 "AI can't write code."
 "You can't do it without knowing syntax."
-These are the ones fighting with reality. The wall is collapsing in front of their eyes, and they are still debating the plaster.
+These are the ones at war with reality. The wall is collapsing in front of their eyes, and they are still debating the plaster.
 
 Another group is even more grating.
 "Set up this automation, make money like this."

@@ -23,7 +23,7 @@ Como si quedara algún valor cuando todos monten la misma automatización. Como 
 
 Otro grupo más intenta parecer más sensato.
 "Desarrolla tu capacidad de decisión."
-"La inteligencia emocional se pondrá por delante."
+"La inteligencia emocional pasará al primer plano."
 "La creatividad importará."
 "Las relaciones humanas ganarán."
 Muy bien, pero ¿a quién le están hablando?
@@ -57,7 +57,7 @@ Aplasta primero el modelo humano de "tomar la tarea, procesarla".
 Porque la máquina ahora lo hace más rápido, más barato y con más paciencia.
 
 Por eso el asunto no es solo que unos pocos se adelanten.
-El asunto es que se le tira el suelo a una masa enorme.
+El asunto es que a una masa enorme le están arrancando el suelo bajo los pies.
 
 Hoy todos graban un vídeo "cómo sacar ventaja".
 Yo hago otra pregunta:
@@ -70,7 +70,7 @@ Yo hago otra pregunta:
 ¿Cada ser humano será fundador?
 ¿Cada ser humano será artista?
 ¿Cada ser humano será estratega?
-¿Cada ser humano será un sujeto creativo, de alta intuición, de alto rumbo?
+¿Cada ser humano será un sujeto creativo, de gran intuición y rumbo firme?
 
 No.
 

@@ -23,7 +23,7 @@ Como se ainda sobrasse valor quando todos montam a mesma automação. Como se a 
 
 Outro grupo tenta parecer mais ponderado.
 "Desenvolva sua capacidade de decisão."
-"A inteligência emocional vai se destacar."
+"A inteligência emocional vai ganhar o primeiro plano."
 "A criatividade vai importar."
 "As relações humanas vão vencer."
 Está bem — mas para quem estão falando?
@@ -70,7 +70,7 @@ O que acontece com quem não consegue construir estrutura sozinho?
 Cada ser humano vai virar fundador?
 Cada ser humano vai virar artista?
 Cada ser humano vai virar estrategista?
-Cada ser humano vai virar um sujeito criativo, de alta intuição, de forte direção?
+Cada ser humano vai virar um sujeito criativo, de alta intuição e rumo firme?
 
 Não.
 

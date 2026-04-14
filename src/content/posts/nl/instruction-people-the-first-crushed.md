@@ -1,5 +1,5 @@
 ---
-title: "De instructiemensen: de eerst verpletterden"
+title: "De instructiemensen: de eersten die verpletterd worden"
 slug: "instruction-people-the-first-crushed"
 locale: "nl"
 excerpt: "De grootste verwoesting van het AI-tijdperk zal niet in de opkomst van enkele uitblinkers liggen. Ze zal liggen in de stille ontwaarding van de gewone meerderheid."
@@ -59,7 +59,7 @@ Omdat de machine dit nu sneller, goedkoper en geduldiger doet.
 De kwestie is dus niet alleen dat enkelen naar voren schieten.
 De kwestie is dat de grond onder een enorme massa wordt weggetrokken.
 
-Vandaag draait iedereen een video "hoe haal ik een voordeel".
+Vandaag maakt iedereen een video "hoe haal ik een voordeel".
 Ik stel een andere vraag:
 Wat gebeurt er met wie geen voordeel kan halen?
 

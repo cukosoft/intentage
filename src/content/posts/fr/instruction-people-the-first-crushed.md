@@ -1,5 +1,5 @@
 ---
-title: "Les gens d'instruction : les premiers écrasés"
+title: "Les gens des instructions : les premiers écrasés"
 slug: "instruction-people-the-first-crushed"
 locale: "fr"
 excerpt: "La plus grande dévastation de l'ère de l'IA ne sera pas dans l'ascension de quelques individus brillants. Elle sera dans la dévalorisation silencieuse de la majorité ordinaire."
@@ -33,12 +33,12 @@ C'est exactement là que je bloque.
 Tout le monde parle à la minorité qui avancera.
 Personne ne parle de la majorité qui restera en arrière.
 
-Alors qu'adviendra-t-il des gens d'instruction ?
+Alors qu'adviendra-t-il des gens des instructions ?
 
 Les gens qui vivent par instruction, qui travaillent par instruction, qui ne peuvent faire un pas sans instruction.
 C'est la plus grande partie du monde.
 Des gens qui ne lisent pas leur matin avec une boussole intérieure, mais avec le flux qui vient de l'extérieur.
-Des gens qui ne peuvent tracer leur propre direction, qui vivent à l'intérieur du cadre qu'on leur pose devant.
+Des gens qui ne peuvent tracer leur propre direction, qui vivent à l'intérieur du cadre qu'on place devant eux.
 Le système éducatif moderne, l'ordre des cols blancs, la vie d'entreprise — tout cela a produit exactement ce type humain.
 Peut-être qu'ils n'ont pas dit "ne pense pas", mais ils n'ont pas non plus appris à tracer sa propre direction.
 Ils ont dit : exécute.
@@ -51,7 +51,7 @@ Et maintenant, ce même monde se retourne vers ces gens et leur dit :
 
 C'est là qu'est la rupture.
 
-Parce que l'IA n'écrase pas d'abord le génie. Elle écrase d'abord l'homme d'instruction.
+Parce que l'IA n'écrase pas d'abord le génie. Elle écrase d'abord l'homme des instructions.
 Elle écrase d'abord le travail mental de qualité moyenne.
 Elle écrase d'abord le modèle humain "prendre la tâche, la traiter".
 Parce que la machine le fait désormais plus vite, moins cher, avec plus de patience.
@@ -79,11 +79,11 @@ Et la société n'a jamais été ainsi, de toute façon.
 La majeure partie de la société a toujours été portée par le flux.
 Maintenant, ce flux lui-même s'automatise.
 C'est-à-dire : l'instruction se termine.
-Et quand l'instruction se termine, l'homme d'instruction devient le premier écrasé.
+Et quand l'instruction se termine, l'homme des instructions devient le premier écrasé.
 
 Je pense que la vraie question du siècle à venir n'est pas "qui va gagner".
 La vraie question est :
-Que vont faire les gens d'instruction ?
+Que vont faire les gens des instructions ?
 
 Car ils ne sont pas une petite exception.
 Ils sont la majorité.
@@ -98,4 +98,4 @@ Et même un peu malhonnête.
 Parce que la vraie question reste posée :
 
 Si la machine a pris en charge l'instruction,
-qui fera de la place à l'homme d'instruction ?
+qui fera de la place à l'homme des instructions ?

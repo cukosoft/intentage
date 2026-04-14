@@ -13,7 +13,7 @@ Un gruppo continua a dire che nulla è cambiato.
 "Prima impara le basi."
 "L'IA non sa scrivere codice."
 "Senza la sintassi non si può."
-Questi sono quelli che combattono con la realtà. Il muro crolla davanti ai loro occhi e loro ancora discutono dell'intonaco.
+Questi sono quelli che litigano con la realtà. Il muro crolla davanti ai loro occhi e loro ancora discutono dell'intonaco.
 
 Un altro gruppo è ancora più fastidioso.
 "Monta questa automazione, guadagna così."
@@ -70,7 +70,7 @@ Cosa succederà a chi non sa costruire una struttura da solo?
 Ogni essere umano diventerà fondatore?
 Ogni essere umano diventerà artista?
 Ogni essere umano diventerà stratega?
-Ogni essere umano diventerà un soggetto creativo, di alta intuizione, di forte direzione?
+Ogni essere umano diventerà un soggetto creativo, di alta intuizione e direzione salda?
 
 No.
 
