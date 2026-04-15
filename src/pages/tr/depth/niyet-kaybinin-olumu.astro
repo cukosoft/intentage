@@ -1,0 +1,490 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/global.css';
+
+export const prerender = true;
+---
+
+<BaseLayout
+  title="Niyet Kaybının Ölümü"
+  description="Bir fikrin en büyük düşmanı hiçbir zaman teknik zorluk değildi. Asıl düşman, o fikrin yolda bozulmasıydı."
+  locale="tr"
+>
+
+  <!-- SVG Water Filters -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <defs>
+      <filter id="depth-water-1" x="-30%" y="-20%" width="160%" height="140%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.018 0.012"
+          numOctaves="3"
+          seed="7"
+          result="noise">
+          <animate
+            attributeName="baseFrequency"
+            values="0.018 0.012;0.023 0.015;0.016 0.011;0.020 0.013;0.018 0.012"
+            dur="12s"
+            repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="10"
+          xChannelSelector="R"
+          yChannelSelector="G"
+          result="displaced"/>
+        <feGaussianBlur stdDeviation="0.8" in="displaced"/>
+      </filter>
+
+      <filter id="depth-water-2" x="-10%" y="-8%" width="120%" height="116%">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.010 0.007"
+          numOctaves="2"
+          seed="3"
+          result="noise"/>
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="noise"
+          scale="3"
+          xChannelSelector="R"
+          yChannelSelector="G"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="depth-wrapper" id="depthWrapper">
+
+    <div class="depth-meta">
+      <span class="depth-date">15 Nisan 2026</span>
+    </div>
+
+    <!-- ── Layer 1 ── -->
+    <article class="depth-layer" id="depthLayer1">
+      <div class="depth-body depth-body--1">
+
+        <p class="depth-lead">Niyet kaybının ölümü.</p>
+
+        <p>Uzun süre teknoloji hakkında yanlış konuştuk.<br>
+        Hız dedik. Otomasyon dedik. Kod üretimi dedik. Maliyet dedik.</p>
+
+        <p>Hiçbiri merkez değildi.</p>
+
+        <p>Asıl mesele şuydu:<br>
+        Bir fikrin, dünyaya çıkana kadar bozulması.</p>
+
+        <p>Yapay zekâ önce bunu kırıyor.</p>
+
+        <p>İlk kez, insanın içindeki berraklık ile ortaya çıkan şey arasındaki mesafe bu kadar kısalıyor.</p>
+
+        <p>Bu yüzden mesele sadece AI değil.<br>
+        Bu, niyetin daha az çürüdüğü yeni çağ.</p>
+
+        <p class="depth-finale"><strong>Intent Age.</strong></p>
+
+      </div>
+    </article>
+
+    <!-- ── Layer 2 ── -->
+    <article class="depth-layer" id="depthLayer2" style="display:none;opacity:0">
+      <div class="depth-body depth-body--2">
+
+        <p>Bir fikrin asıl düşmanı çoğu zaman teknik zorluk değildi.<br>
+        Asıl düşman, o fikrin yolda yumuşamasıydı.</p>
+
+        <p>Bir insan bir şey görür.<br>
+        Bir yön.<br>
+        Bir akış.<br>
+        Bir sürtünmenin ezilişi.</p>
+
+        <p>Sonra anlatmak zorunda kalır.<br>
+        Ve kayıp başlar.</p>
+
+        <p>Çünkü fikir, insandan insana geçerken aynı kalmaz.<br>
+        Ton kaybeder.<br>
+        Keskinlik kaybeder.<br>
+        Cesaret kaybeder.<br>
+        Bazen de açıklama yükünden şişer.</p>
+
+        <p>Sonra katmanlar gelir.<br>
+        Toplantılar.<br>
+        Dokümanlar.<br>
+        Roller.<br>
+        Koordinasyon.</p>
+
+        <p>Ve çoğu zaman ortaya ürün çıkmaz.<br>
+        Ortaya, niyeti düşürülmüş bir uzlaşma çıkar.</p>
+
+        <p>Uzun süre biz buna profesyonellik dedik.</p>
+
+        <p>Oysa büyük kısmı sadece şuydu:</p>
+
+        <p class="depth-key"><strong>Niyetin ölmesi.</strong></p>
+
+        <p>Yapay zekânın yaptığı en derin şey hız kazandırmak değil.<br>
+        Niyet ile sonuç arasındaki çürümeyi azaltmak.</p>
+
+        <p>Teknik duvar geri çekildikçe, ilk kez asıl fark görünür oluyor:<br>
+        kaynak değil, <strong>berraklık</strong>.</p>
+
+      </div>
+    </article>
+
+    <!-- ── Layer 3 ── -->
+    <article class="depth-layer" id="depthLayer3" style="display:none;opacity:0">
+      <div class="depth-body depth-body--3">
+
+        <p>Niyet kaybının ölümü, bu dönemin en önemli kırılması olabilir.</p>
+
+        <p>Uzun süre teknoloji tartışmasını yanlış yere kurduk.<br>
+        Hızdan konuştuk.<br>
+        Otomasyondan konuştuk.<br>
+        Kod üretiminden, verimden, maliyetten konuştuk.</p>
+
+        <p>Ama merkezde duran şey başka bir problemdi:<br>
+        insanın içindeki niyetin, dünyaya çıkana kadar çürümesi.</p>
+
+        <p>Bir fikrin en büyük düşmanı her zaman teknik engel değildi.<br>
+        Çoğu zaman aktarım kaybıydı.<br>
+        Bir insanın zihnindeki netliğin, başka insanlara, süreçlere, rollere çarpa çarpa düşmesiydi.</p>
+
+        <p>Bir kurucu bir şey görür.<br>
+        Bir davranış düzeltmesi.<br>
+        Bir yön.<br>
+        Bir sürtünmenin ezilişi.</p>
+
+        <p>Sonra onu anlatmak zorunda kalır.<br>
+        Ve kayıp orada başlar.</p>
+
+        <p>Çünkü fikir, insandan insana geçerken aynı kalmaz.<br>
+        Ton kaybeder.<br>
+        Keskinlik kaybeder.<br>
+        Öncelik kaybeder.<br>
+        Bazen cesaret kaybeder.<br>
+        Bazen de gereksiz açıklamalarla şişer.</p>
+
+        <p>Sonra toplantılar girer.<br>
+        Dokümanlar girer.<br>
+        Roller girer.<br>
+        Koordinasyon girer.<br>
+        Ve çoğu zaman ortaya ürün değil, niyeti düşürülmüş bir uzlaşma çıkar.</p>
+
+        <p>Uzun süre biz bunu profesyonellik sandık.<br>
+        Oysa bunun büyük kısmı sadece niyetin ölmesiydi.</p>
+
+        <p>Bu ölümün ciddi bir maliyeti vardı.<br>
+        Ama görünmezdi.</p>
+
+        <p>Kimse "kaç fikir yanlış anlaşıldı" diye rapor yazmaz.<br>
+        Kimse "kaç ürün ton kaybından vasatlaştı" diye dashboard açmaz.<br>
+        Kimse "kaç yıl niyet çürümesine gitti" diye bilanço çıkarmaz.</p>
+
+        <p>Ama gerçek maliyet tam oradaydı:<br>
+        boşa giden emek,<br>
+        beklemeye gömülen zaman,<br>
+        açıklamaya yanan dikkat,<br>
+        katmanlar arasında kırılan enerji,<br>
+        kuvvetliyken ortalamaya düşen ürünler.</p>
+
+        <p>Yapay zekânın asıl yaptığı şey bu görünmez kaybı azaltmak.</p>
+
+        <p>İlk kez, bir insanın kafasındaki şekil dünyaya daha kısa bir hat üzerinden çıkabiliyor.<br>
+        İlk kez, görmekle yapmak arasındaki mesafe bu kadar daralıyor.<br>
+        İlk kez, teknik eşik; niyeti, sezgiyi ve vizyonu bu kadar az geciktiriyor.</p>
+
+        <p>Bu kusursuzluk demek değil.<br>
+        Hâlâ hata var.<br>
+        Hâlâ gürültü var.<br>
+        Ama yön değişti.</p>
+
+        <p>Teknik duvar geri çekildikçe başka bir ayrım görünür hale geliyor:<br>
+        asıl farkı artık sadece kaynaklar değil, niyetin berraklığı belirliyor.</p>
+
+        <p>Kim gerçekten ne yapmak istediğini biliyor?<br>
+        Kim gördüğü şeyi koruyabiliyor?<br>
+        Kim sürtünmeyi gerçekten görüyor?<br>
+        Kim bir şeyi başkalarının diliyle değil, kendi zihninin netliğiyle kurabiliyor?</p>
+
+        <p>Yeni çağ bu soruları merkeze taşıyor.</p>
+
+        <p>Çünkü niyet kaybı azaldıkça üretim ucuzlar.<br>
+        Sadece para olarak değil.<br>
+        Zaman olarak ucuzlar.<br>
+        Dikkat olarak ucuzlar.<br>
+        Koordinasyon olarak ucuzlar.<br>
+        Psikolojik enerji olarak ucuzlar.</p>
+
+        <p>Eskiden on kişinin çevire çevire yapabildiği şeyleri artık bir kişi çok daha kısa hatla hayata geçirebilir.<br>
+        Eskiden aylar süren denemeler günlere sıkışabilir.<br>
+        Eskiden ancak büyük ekiplerin çıkarabildiği netlikte işler, artık küçük ekiplerden hatta tek kişilerden çıkabilir.</p>
+
+        <p>Bu küçük bir değişim değil.<br>
+        Bu, üretimin toplumsal maliyet yapısının değişmesi.</p>
+
+        <p>Ve üretim ucuzladığında kalite tabana yayılmaya başlar.</p>
+
+        <p>Uzun süre kaliteyi büyük organizasyonların doğal hakkı sandık.<br>
+        Şimdi o varsayım çatlıyor.</p>
+
+        <p>Çünkü iyi ürünün önündeki engel her zaman zeka eksikliği değildi.<br>
+        Çoğu zaman aktarım kaybıydı.<br>
+        Teknik bariyerdi.<br>
+        Çeviri yüküydü.<br>
+        Katmanların niyeti öldürmesiydi.</p>
+
+        <p>Bu yük azaldıkça küçük oyuncu ilk kez sadece ucuz alternatif olmak zorunda kalmıyor.<br>
+        İlk kez gerçekten iyi olma şansı buluyor.</p>
+
+        <p>Bu yüzden konuştuğumuz şey yalnızca teknoloji değil.<br>
+        Konuştuğumuz şey, emeğin, zamanın ve paranın iadesi.</p>
+
+        <p>Yıllarca sistem içinde buharlaşan şeylerin geri çağrılması.<br>
+        Boşa giden emek.<br>
+        Beklemeye gömülen zaman.<br>
+        Görünür olmaya yanan para.<br>
+        Arada ölen niyet.</p>
+
+        <p>Bu yüzden ben bu dönemi sadece AI çağı diye okumuyorum.<br>
+        Bu tanım araçtan bahsediyor ama yönü ıskalıyor.</p>
+
+        <p>Ben buna başka bir isim veriyorum:</p>
+
+        <p class="depth-key"><strong>Intent Age.</strong></p>
+
+        <p>Niyetin arayüz haline geldiği çağ.<br>
+        Niyetin ürünleşme mesafesinin kısaldığı çağ.<br>
+        Niyetin üretimi, kararı ve dağıtımı daha doğrudan etkilediği çağ.</p>
+
+        <p>Bu çağda en değerli şey sadece bilgi olmayabilir.<br>
+        Sadece teknik beceri de olmayabilir.</p>
+
+        <p>En değerli şey, ne yapmak istediğini gerçekten bilmek olabilir.</p>
+
+        <p>Çünkü teknik duvar geri çekildiğinde, gürültü azaldığında ve ara katmanlar çözüldüğünde geriye tek soru kalır:</p>
+
+        <p class="depth-question"><strong>Kim gerçekten ne yapmak istediğini biliyor?</strong></p>
+
+        <p>Gelecek, en çok konuşanın olmayacak.<br>
+        En çok sunum hazırlayanın olmayacak.<br>
+        En çok açıklama yapanın olmayacak.</p>
+
+        <p class="depth-closing">Gelecek, niyetini en az kayıpla sonuca taşıyanın olacak.</p>
+
+      </div>
+    </article>
+
+    <!-- Controls -->
+    <div class="depth-controls">
+      <div class="depth-dots">
+        <span class="depth-dot depth-dot--active"></span>
+        <span class="depth-dot"></span>
+        <span class="depth-dot"></span>
+      </div>
+      <p class="depth-hint" id="depthHint">çift tıkla</p>
+    </div>
+
+  </div>
+
+  <style>
+    .depth-wrapper {
+      padding-top: 2rem;
+      -webkit-user-select: none;
+      user-select: none;
+      touch-action: manipulation;
+      cursor: default;
+    }
+
+    .depth-meta {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .depth-date {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+    }
+
+    .depth-body {
+      line-height: 1.9;
+    }
+
+    .depth-body p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Layer 1 — su altında */
+    .depth-body--1 {
+      filter: url(#depth-water-1);
+      color: #7a8c9c;
+    }
+
+    /* Layer 2 — yüzeye doğru */
+    .depth-body--2 {
+      filter: url(#depth-water-2);
+      color: #4a4540;
+    }
+
+    /* Layer 3 — kuru */
+    .depth-body--3 {
+      filter: none;
+      color: var(--color-text);
+    }
+
+    .depth-lead {
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 2.5rem;
+      color: inherit;
+    }
+
+    .depth-finale,
+    .depth-key {
+      margin-top: 2rem;
+    }
+
+    .depth-question {
+      margin: 2.5rem 0;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+    }
+
+    .depth-closing {
+      font-style: italic;
+    }
+
+    /* Controls */
+    .depth-controls {
+      margin-top: 4rem;
+      text-align: center;
+      padding-bottom: 4rem;
+    }
+
+    .depth-dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 1rem;
+    }
+
+    .depth-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--color-border);
+      transition: background 0.5s ease, transform 0.3s ease;
+    }
+
+    .depth-dot--active {
+      background: var(--color-accent);
+      transform: scale(1.3);
+    }
+
+    .depth-dot--done {
+      background: #b0a28f;
+      transform: scale(1);
+    }
+
+    .depth-hint {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin: 0;
+      animation: depth-pulse 3s ease-in-out infinite;
+      transition: opacity 0.5s ease;
+    }
+
+    .depth-hint--gone {
+      opacity: 0;
+      pointer-events: none;
+      animation: none;
+    }
+
+    @keyframes depth-pulse {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+
+  <script>
+    let current = 0;
+    const TOTAL = 3;
+
+    const layers = [
+      document.getElementById('depthLayer1') as HTMLElement,
+      document.getElementById('depthLayer2') as HTMLElement,
+      document.getElementById('depthLayer3') as HTMLElement,
+    ];
+
+    const dots = document.querySelectorAll<HTMLElement>('.depth-dot');
+    const hint = document.getElementById('depthHint');
+    const wrapper = document.getElementById('depthWrapper');
+
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.remove('depth-dot--active', 'depth-dot--done');
+        if (i < current) dot.classList.add('depth-dot--done');
+        if (i === current) dot.classList.add('depth-dot--active');
+      });
+    }
+
+    function trackEvent(from: number, to: number) {
+      try {
+        const w = window as any;
+        if (typeof w.va === 'function') {
+          w.va('event', {
+            name: 'depth_advance',
+            data: { from: from + 1, to: to + 1, slug: 'niyet-kaybinin-olumu' },
+          });
+        }
+      } catch {}
+    }
+
+    function advance() {
+      if (current >= TOTAL - 1) return;
+
+      const out = layers[current];
+      const next = current + 1;
+      const into = layers[next];
+
+      trackEvent(current, next);
+
+      hint?.classList.add('depth-hint--gone');
+
+      // Fade out
+      out.style.transition = 'opacity 0.6s ease';
+      out.style.opacity = '0';
+
+      setTimeout(() => {
+        out.style.display = 'none';
+        out.style.transition = '';
+
+        into.style.display = 'block';
+        into.style.opacity = '0';
+
+        // Force reflow
+        void (into as HTMLElement).offsetHeight;
+
+        into.style.transition = 'opacity 0.9s ease';
+        into.style.opacity = '1';
+
+        current = next;
+        updateDots();
+      }, 600);
+    }
+
+    wrapper?.addEventListener('dblclick', advance);
+
+    // Prevent text selection on rapid clicks
+    wrapper?.addEventListener('mousedown', (e) => {
+      if (e.detail >= 2) e.preventDefault();
+    });
+  </script>
+
+</BaseLayout>
